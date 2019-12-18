@@ -1,7 +1,20 @@
+import * as Yup from 'yup';
+
 import Task from '../models/Task';
 
 class TaskController {
     async store(req, res) {
+        const schema = Yup.object().shape({
+            description: Yup.string().required(),
+            status: Yup.string().required(),
+            deadline: Yup.date().required(),
+            user_id: Yup.string().required(),
+        });
+
+        if (!(await schema.isValid(req.body))) {
+            return res.status(400).json({ error: "validation failed" });
+        }
+
         const { description, status, deadline, user_id } = req.body;
 
         const response = await Task.create({
@@ -15,6 +28,17 @@ class TaskController {
     }
 
     async update(req, res) {
+        const schema = Yup.object().shape({
+            description: Yup.string().required(),
+            status: Yup.string().required(),
+            deadline: Yup.date().required(),
+            user_id: Yup.string().required(),
+        });
+        
+        if (!(await schema.isValid(req.body))) {
+            return res.status(400).json({ error: "validation failed" });
+        }
+
         const { description, status, deadline, user_id } = req.body;
 
         const task = await Task.findByPk(req.params.taskId);
