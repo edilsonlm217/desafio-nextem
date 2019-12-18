@@ -13,7 +13,8 @@
     "pg": "^7.15.0",
     "pg-hstore": "^2.3.3",
     "sequelize": "^5.21.3",
-    "until": "^0.1.1"
+    "until": "^0.1.1",
+    "yup": "^0.28.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.2",
