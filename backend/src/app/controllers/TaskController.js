@@ -1,6 +1,7 @@
 import * as Yup from 'yup';
 
 import Task from '../models/Task';
+import User from '../models/User';
 
 class TaskController {
     async store(req, res) {
@@ -54,7 +55,15 @@ class TaskController {
     }
 
     async index(req, res) {
-        const response = await Task.findAll();
+        const response = await Task.findAll({
+            include: [
+                {
+                    model: User,
+                    as: 'user',
+                    attributes: ['name'],
+                }
+            ],
+        });
 
         return res.json(response);
     }
