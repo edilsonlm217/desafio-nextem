@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import MainHeader from '../../components/Header'
 
-import { Container, TaskList, Task, SubHeader } from './styles';
+import { Container, TaskList, SubHeader } from './styles';
 
 export default function Dashboard() {
 	return (
