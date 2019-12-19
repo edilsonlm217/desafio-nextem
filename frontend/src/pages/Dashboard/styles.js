@@ -18,9 +18,9 @@ export const TaskList = styled.ul`
       padding: 20px;
       border-radius: 4px;
       background: rgb(255, 255, 255, 0.3);
+      height: 100%;
       
       border-left: 7px solid #00BC06;
-
 
       strong {
         display: block;
@@ -29,11 +29,25 @@ export const TaskList = styled.ul`
         font-weight: normal;
       }
 
-      span {
-        display: block;
-        margin-top: 3px;
-        color: #666;
+      .spanDiv {
+        display: flex;
+        flex-direction: row;
+
+        span {
+          display: block;
+          margin-top: 3px;
+          color: #666;
+        }
+
+        span.border {
+          border-left: 1px solid #DDDDDD;
+          margin-left: 10px;
+          padding-left: 10px;
+          border-color: #666;
+        }
+
       }
+      
     }
 
     li.WIP {
@@ -50,11 +64,24 @@ export const TaskList = styled.ul`
         font-weight: normal;
       }
 
+      .spanDiv {
+        display: flex;
+        flex-direction: row;
+      }
+      
       span {
         display: block;
         margin-top: 3px;
         color: #666;
       }
+
+      span.border {
+          border-left: 1px solid #DDDDDD;
+          margin-left: 10px;
+          padding-left: 10px;
+          border-color: #666;
+          
+        }
     }
 
     li.Review {
@@ -72,11 +99,24 @@ export const TaskList = styled.ul`
         font-weight: normal;
       }
 
+      .spanDiv {
+        display: flex;
+        flex-direction: row;
+      }
+
       span {
         display: block;
         margin-top: 3px;
         color: #666;
       }
+
+      span.border {
+          border-left: 1px solid #DDDDDD;
+          margin-left: 10px;
+          padding-left: 10px;
+          border-color: #666;
+          white-space: nowrap;
+        }
     }
 
     li.ToDo {
@@ -94,10 +134,24 @@ export const TaskList = styled.ul`
         font-weight: normal;
       }
 
+      .spanDiv {
+        display: flex;
+        flex-direction: row;
+      }
+
       span {
         display: block;
         margin-top: 3px;
         color: #666;
+        white-space: nowrap
+      }
+
+      span.border {
+        border-left: 1px solid #DDDDDD;
+        margin-left: 10px;
+        padding-left: 10px;
+        border-color: #666;
+        white-space: nowrap;
       }
     }
 `;

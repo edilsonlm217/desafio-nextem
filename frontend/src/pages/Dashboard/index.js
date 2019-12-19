@@ -1,11 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
+
+import api from '../../services/api';
 
 import MainHeader from '../../components/Header';
 
 import { Container, TaskList, SubHeader } from './styles';
 
 export default function Dashboard() {
+	const [tasks, setTasks] = useState([]);
+	const Authorization = 'Bearer ' + localStorage.getItem('@nextem-app/token');
+
+	useEffect(() => {
+		async function loadTasks() {
+			const response = await api.get('/task', {
+				headers: {
+					Authorization,
+				},
+			})
+
+			setTasks(response.data);
+		}
+		
+		loadTasks();
+	}, [Authorization]);
+	
 	return (
 		<Container>
 			<MainHeader />
@@ -13,59 +32,25 @@ export default function Dashboard() {
 				<strong>Dashboard</strong>
 				<div>
 					<Link to="/create">
-						<button type>ADICIONAR</button>
+						<button>ADICIONAR</button>
 					</Link>
 				</div>
 			</SubHeader>
 			<TaskList>
-				<li className="Done">
-					<strong>Realizar testes funcionais</strong>
-					<span>
-						Feito | Assinalado para Edilson Lima
-					</span>
-				</li>
-				<li className="WIP">
-					<strong>Realizar testes unitários</strong>
-					<span>
-						Cancelado | Assinalado para Tereza Farias
-					</span>
-				</li>
-				<li className="Review">
-					<strong>Desenvolver o backend da aplicação</strong>
-					<span>
-						Aguardando Revisão | Assinalado para Moany Rocha
-					</span>
-				</li>
-				<li className="ToDo">
-					<strong>Contratar um Desenvolver</strong>
-					<span>
-						Em aberto
-					</span>
-				</li>
-				<li className="Done">
-					<strong>Realizar testes funcionais</strong>
-					<span>
-						Feito | Assinalado para Hemilly Julia
-					</span>
-				</li>
-				<li className="WIP">
-					<strong>Realizar testes unitários</strong>
-					<span>
-						Cancelado | Assinalado para Edilson Lima
-					</span>
-				</li>
-				<li className="Review">
-					<strong>Definir stakeholders</strong>
-					<span>
-						Aguardando Revisão | Assinalado para Moany Rocha
-					</span>
-				</li>
-				<li className="ToDo">
-					<strong>Entrega do produto</strong>
-					<span>
-						Em Aberto
-					</span>
-				</li>
+				{tasks.map(task => (
+					<Link to={`/edit/${task.id}`} key={task.id} className="task">
+						<li className={task.status.replace(' ','')}>
+							<strong>{task.description}</strong>
+							<div className="spanDiv">
+								<span>{task.status}</span>
+								<span 
+									className="border"
+								>{task.user ? `Assinalado para ${task.user.name}` : 'Não assinalado'}
+								</span>
+							</div>
+						</li>	
+					</Link>
+				))}
 			</TaskList>
 		</Container>
   );
