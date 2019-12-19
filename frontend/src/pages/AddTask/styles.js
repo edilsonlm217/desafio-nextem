@@ -83,17 +83,16 @@ export const Form = styled.div`
     }
 
     .deadline {
-        width: 150px;
+        width: auto;
     }
 
-    div {
+    div.secondRow {
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        
+        flex-direction: row;        
     }
 
-    button {
+
+    button.save {
         background: #34C943;
         border-radius: 4px;
         border: none;
@@ -104,7 +103,7 @@ export const Form = styled.div`
         margin-top: 5px;
     }
 
-    button:hover {
+    button.save:hover {
         background: ${darken(0.1, '#34C943')};
     }
 

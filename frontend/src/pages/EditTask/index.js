@@ -2,10 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import MainHeader from '../../components/Header';
+import DatePicker from '../../components/DatePicker';
 
 import { Container, SubHeader, Form } from './styles';
 
-export default function AddTask() {
+
+export default function EditTask() {
   return (
     <Container>
       <MainHeader />
@@ -23,7 +25,7 @@ export default function AddTask() {
           <input placeholder="Qual a tarefa?" />
         </label>
 
-        <div>
+        <div className="secondRow">
           <label className="responsavel">
               Assinalar para
               <select>
@@ -45,11 +47,12 @@ export default function AddTask() {
               </select>
           </label>
           <label className="deadline">
-              Deadline
-              <input></input>
+            Deadline
+            <DatePicker />
           </label>
         </div>
-        <button>SALVAR</button>
+        <button className="save">SALVAR</button>
+        
       </Form>
     </Container>
   );
