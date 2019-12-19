@@ -67,6 +67,20 @@ class TaskController {
 
         return res.json(response);
     }
+
+    async show(req, res) {
+        const response = await Task.findByPk(req.params.taskId, {
+            include: [
+                {
+                    model: User,
+                    as: 'user',
+                    attributes: ['name'],
+                }
+            ],
+        });
+
+        return res.json(response);
+    }
 }
 
 export default new TaskController();
