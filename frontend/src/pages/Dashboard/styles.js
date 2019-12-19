@@ -137,21 +137,7 @@ export const SubHeader = styled.div`
         }
 
         button:hover {
-            background: ${darken(0.1, '#EE4D64')};
-        }
-
-        input {
-            height: 35px;
-            width: 250px;
-            padding-left: 10px;
-            margin-left: 5px;
-            border: 1px solid #DDDDDD;
-            border-radius: 4px;
-            
-
-            ::placeholder {
-                color: #999999;
-            }
+            background: ${darken(0.1, '#34C943')};
         }
     }
 `;

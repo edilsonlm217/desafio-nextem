@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import MainHeader from '../../components/Header'
+import MainHeader from '../../components/Header';
 
 import { Container, TaskList, SubHeader } from './styles';
 
@@ -12,7 +12,7 @@ export default function Dashboard() {
 			<SubHeader>
 				<strong>Dashboard</strong>
 				<div>
-					<Link to="/alunos/cadastrar">
+					<Link to="/create">
 						<button type>ADICIONAR</button>
 					</Link>
 				</div>
