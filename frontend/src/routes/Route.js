@@ -10,7 +10,7 @@ export default function RouteWrapper({
     isPrivate,
     ...rest
  }) {
-     const signed = true;
+     const signed = localStorage.getItem('@nextem-app/token');
 
      if (!signed && isPrivate) {
          return <Redirect to="/"/>;
