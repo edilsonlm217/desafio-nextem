@@ -47,7 +47,7 @@ export const SubHeader = styled.div`
     }
 `;
 
-export const Form = styled.div`
+export const Form = styled.form`
     margin-top: 50px;
     background: #FFF;
     padding: 20px;

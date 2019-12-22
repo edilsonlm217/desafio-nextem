@@ -18,14 +18,14 @@ export const TaskList = styled.ul`
       padding: 20px;
       border-radius: 4px;
       background: rgb(255, 255, 255, 0.3);
-      height: 100%;
+      height: 110px;
       
       border-left: 7px solid #00BC06;
 
       strong {
         display: block;
         color: #666;
-        font-size: 18px;
+        font-size: 20px;
         font-weight: normal;
       }
 
@@ -37,6 +37,7 @@ export const TaskList = styled.ul`
           display: block;
           margin-top: 3px;
           color: #666;
+          white-space: nowrap;
         }
 
         span.border {
@@ -44,6 +45,7 @@ export const TaskList = styled.ul`
           margin-left: 10px;
           padding-left: 10px;
           border-color: #666;
+          white-space: nowrap;
         }
 
       }
@@ -55,13 +57,14 @@ export const TaskList = styled.ul`
       border-radius: 4px;
       background: rgb(255, 255, 255, 0.3);
       border-left: 7px solid #FF3030;
-
+      height: 110px;
 
       strong {
         display: block;
         color: #666;
         font-size: 18px;
         font-weight: normal;
+        font-size: 20px;
       }
 
       .spanDiv {
@@ -90,7 +93,7 @@ export const TaskList = styled.ul`
       background: #fff;
       border-left: 7px solid #FF9E30;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
+      height: 110px;
 
       strong {
         display: block;
@@ -125,7 +128,7 @@ export const TaskList = styled.ul`
       background: #fff;
       border-left: 7px solid #FFF;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
+      height: 110px;
 
       strong {
         display: block;
