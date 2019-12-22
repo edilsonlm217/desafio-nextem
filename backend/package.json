@@ -4,7 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon src/server.js"
+    "dev": "nodemon src/server.js",
+    "db": "yarn sequelize db:migrate",
+    "seeds": "yarn sequelize db:seed:all"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

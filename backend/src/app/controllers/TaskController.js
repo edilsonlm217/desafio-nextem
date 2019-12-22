@@ -33,7 +33,7 @@ class TaskController {
             description: Yup.string().required(),
             status: Yup.string().required(),
             deadline: Yup.date().required(),
-            user_id: Yup.string().required(),
+            user_id: Yup.string(),
         });
         
         if (!(await schema.isValid(req.body))) {
