@@ -1,5 +1,17 @@
 # Desafio-Nextem
-Este projeto foi criado e desenvolvido como parte do processo seletivo da empresa Nextem. Esta é uma aplicação que gerencia tarefas no formato de dashboard onde é possível criar, editar, assinalar um responsável e definir um estado para cada tarefa.
+Este projeto foi criado e desenvolvido como parte do processo seletivo da empresa Nextem. Esta é uma aplicação que gerencia tarefas no formato de dashboard onde é possível criar, editar, assinalar um responsável, definir um estado e deadline para cada tarefa.
+
+## Como usar
+O usuário e senha padrão para esta aplicação é:
+      
+      usuário: test@nextem.com.br
+      senha: 1234
+      
+## Como esta aplicação foi construída
+O backend desta aplicação está rodando uma API Rest construída utilizando NodeJS e Express. Quanto ao banco de dados, toda a criação de tabelas, relacionamentos e queries está sendo feito através do ORM Sequelize que possibilita a utilização de javascript para realizá-los.
+A autenticação do usuário está utilizando jsonwebtoken possibilitando que a aplicação impeça o acesso de suas rotas por usuários não autenticados.
+
+O frontend foi construido interiamente utilizando Javascript e utilizando como principal biblioteca o ReactJS.
 
 
 ## Pre-requisitos
@@ -47,3 +59,36 @@ Uma vez conectado, vá até o campo [Select Database] e cria um database com a s
         Encoding: UTF8
         
 Finalizado! Agora toda a estrutura de tabelas e relacionamentos será criada automaticamente pelo código do backend.
+
+## Baixando e instalando a aplicação.
+Crie uma pasta local em seu computador e chame-a de "nextem". Baixe as pastas backend e frontend para dentro dela. Após o download, navegue até a pasta "nextem" através de um terminal de sua preferencia.
+
+## Rodando o backend
+Navegue até a pasta nextem/backend com seu terminal. Primeiramente, execute o comando "yarn" para instalação das dependencias do projeto. Aguarde a finalização.
+
+### Configurando algumas variaveis de ambiente
+Algumas variaveis podem mudar de um ambiente de desenvolvimento para outro e aqui faremos a configuração para que tudo rode perfeitamente.
+
+Ainda no terminal, abra o projeto no VSCode utilizando o comando "code ."
+Vá até o arquivo ".env" e nas variaveis referentes ao banco de dados, certifique-se que estejam configuradas conforme abaixo:
+
+        DB_HOST= (coloque aqui o IP que o docker pegou. Veja como identificar neste link: https://ibb.co/5FhvSfN)
+        DB_USER=postgres
+        DB_PASS=docker
+        DB_NAME=nextem
+
+### Criar tabelas e relacionamentos
+Para criar as tabelas do banco de dados, seus relacionamentos e populá-las, existem 2 scripts configurados que farão todo o processo. Basta rodá-los. juntamente com o comando "yarn dev" que colocará a API para rodar.
+De volta no terminal, rode os três comandos abaixo na respectiva ordem:
+
+         yarn db
+         yarn seeds
+         yarn dev
+
+Pronto! As tabelas no banco de dados estão criadas e populadas e nossa API está rodando.
+
+## Rodando o frontend
+Por o frontend para rodar consiste basciamente dos mesmos steps, no entando o comando yarn a ser utilizado não é o mesmo. Navegue até a pasta nextem/frontend com seu terminal. Primeiramente, execute o comando "yarn" para instalação das dependencias do projeto. Aguarde a finalização. Em seguida, rode o comando "yarn start" e pronto. Já teremos o frontend rodando.
+
+O navegador será inicializado automaticamente no endereço http://localhost:3000/
+Se o navegador não for iniciado automaticamente, digite em seu browser o endereço http://localhost:3000/
